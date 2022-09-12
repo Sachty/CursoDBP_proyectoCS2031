@@ -26,5 +26,3 @@ def login():
             print(err)
             return "Error while accesing user. Try again."
     return render_template("login.html")
-def register():
-    return "register"
