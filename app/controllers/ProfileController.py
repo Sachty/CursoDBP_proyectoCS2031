@@ -57,10 +57,16 @@ def update():
             return "Internal server error."
         
         if newUsername != None and newUsername != "":
+            existingUser = NewUser.query.filter(NewUser.username == newUsername).first()
+            if existingUser != None:
+                return "Invalid username"
             user1.username = newUsername
         if newPassword != None and newPassword != "":
             user1.password = newPassword
         if newEmail != None and newEmail != "":
+            existingUser = NewUser.query.filter(NewUser.email == newEmail).first()
+            if existingUser != None:
+                return "Invalid email"
             user1.email = newEmail
         
         try: 
